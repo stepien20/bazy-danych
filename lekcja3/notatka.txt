@@ -109,6 +109,17 @@ h)odczytaj 3 pierwsze rekordy filmow alfabetycznie
 i)wyświetl tytuł i cenę 1 filmu z roku 1984 o najwyzszej cenie wypozyczenia
 [SELECT tytul,cena FROM `filmy` WHERE rok_produkcji=1984 ORDER BY cena DESC LIMIT 1;]
 
+j) wyszukac cene z filmy i zeby sie nie powtarzaly
+[SELECT DISTINCT cena FROM `filmy`; ]
+DISTINCT-nie powtarza rekordów
+
+
+k) wyswietl tytuly i ceny filmow tak aby tytuly byly 
+prezenotwane za pomoca wielkich liter a ceny zostaly powiekszone o 23% VAT i zaokrąglone do 
+2 miejsc po przecinku
+[SELECT upper(tytul),round((cena*1.23),2)FROM `filmy`;]
+
+
 
 ------------------------------------------------------
 /jak układać zapytanie/
