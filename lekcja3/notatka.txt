@@ -100,6 +100,11 @@ albo
 [SELECT * FROM `filmy` WHERE tytul REGEXP '^T.*'](REGEXP używa dziwnych znaczków do tego
  żeby to przeszukać {'^'-zaczyna szukanie 'T'-pierwsza litera '.'mówi że coś jeszcze 
  '*' mówi że jest cokolwiek })
+
+
+h)odczytaj 3 pierwsze rekordy filmow alfabetycznie
+[SELECT * FROM `filmy`  ORDER BY tytul ASC LIMIT 3;]
+
 ------------------------------------------------------
 /jak układać zapytanie/
 kolejność klauzul w poleceniach sql jest ściśle określona:
@@ -142,3 +147,13 @@ SUBSTRING
 {wycina itp itd}
 [SELECT * FROM `aktorzy` WHERE SUBSTRING(imie,1,2)="Ar"]
 wyświetla każdego aktora z imieniemem zaczynającym się na 'Ar'
+
+--------------------------------------
+ograniczenie zbioru odczytywanych rekordów 
+
+SELECT * FROM tabela limit ile_rekordów_odczytać offset ile_rekordów_pominąć
+
+limit 5- bierze pierwsze 5
+offset 5 - skipuje pierwsze 5
+
+offset 5 limit 3- skipnie pierwsze 5 ale wezmie kolejne 3
