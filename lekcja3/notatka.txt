@@ -2,10 +2,12 @@ typy projekcji:
 -pełen odczyt tabeli 
 [SELECT * FROM aktorzy; ]
 cała tabela
+[SELECT * FROM tabela;]
 
 -selekcja 
 [SELECT * FROM filmy WHERE rok_produkcji >1990; ]
 jakiś warunek
+[SELECT * FROM tabela WHERE warunek_logiczny; ]
 
 -projekcja
 [SELECT tytul,cena FROM filmy; ]
@@ -34,13 +36,33 @@ jeżeli w kolumnie1 jest tak samo to kolumna 2 rozstrzyga która bedzie wyżej/n
 ORDER BY - Uporządkowanie
 ----------------------------------------------------------
 Polecenia
-odczytaj wszystkie rekordy z tabeli filmy uporzadkowane  malejaca dla filmow o jednakowej cenie
+a)odczytaj wszystkie rekordy z tabeli filmy uporzadkowane  malejaca dla filmow o jednakowej cenie
  a rosnaca dla filmow wg tytulu
 
 [SELECT * FROM filmy ORDER BY cena DESC,tytul ASC; ]
 albo
 [SELECT * FROM filmy ORDER BY cena DESC,tytul;]
 bo domyślnie jest ASC
+
+
+b)odczytaj z filmy rekordy ktore w kolumnie cena posiadaja wartosc wieksza niz 9
+[SELECT * FROM filmy WHERE cena>9]
+
+
+
+c)odczytaj z tabeli filmy rekordy w kolumnie tytul maja wartosc Frantic
+[SELECT * FROM filmy WHERE tytul='Frantic';]
+albo
+[SELECT * FROM filmy WHERE tytul="Frantic";]
+
+d)odczytac rekordy ktore w kolumnie rok produkcji posiadaja wartosc 1984 lub 1986
+[SELECT * FROM filmy WHERE `rok_produkcji`=1984 ||`rok_produkcji`=1986; ]
+albo
+[SELECT * FROM filmy WHERE `rok_produkcji`=1984 OR `rok_produkcji`=1986;]
+albo
+[SELECT * FROM filmy WHERE rok_produkcji IN (1984,1986);]
+
+IN-można parę wartości od razu wpisać a nie używać ||/OR
 ------------------------------------------------------
 
 
