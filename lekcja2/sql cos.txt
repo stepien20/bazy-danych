@@ -1,0 +1,16 @@
+Micorsoft SQL
+SUBSTRING ( expression, start, length )
+
+oracle database
+SUBSTR( str, start_position [, substring_length, [, occurrence ]] );
+
+ibm db2
+SUBSTR( string-expression, start, length)
+
+postgresql 
+substring(string [from <str_pos>] [for <ext_char>])
+
+mysql
+SUBSTRING(string, start, length)
+
+Prawie 60% pytanych deklaruje pracę z MySQL, 41.2% z SQL Server, prawie 33% z PostgreSQL.

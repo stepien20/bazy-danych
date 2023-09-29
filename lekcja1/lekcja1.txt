@@ -1,0 +1,13 @@
+1.Napisz temat związany z twoją bazą danych (sklep/ hurtoniwa itp)
+Sklep informatyczny
+2.Wypisz około 50 rzeczy,pojęć z tematem twojej bazy danych
+
+3.przerób 2 rachunki na tablicy wyświetlone w taki sposob by pasowaly do tematu twojej bazy danych
+
+4. przerob rachunki na tabelki
+
+5. 
+-Stworz 4 tabelki na wzor tych ze slajdu z danymi z rachunkow 
+-stworz nowa tabelke z kolumnami i rekordami na podstawie 50 pojec jezeli poszly wczesniej to dopisz nowe wartosci
+-polacz tabele ze soba (dodaj kolumne zkluczem innej)[czyli schemat z relacjami narysuj idk]
+-przy kazdych z rzeczy z tych 50 okresl 1 z 3 pojec: nazwa tabeli, nazwa rekordu, nazwa kolumny

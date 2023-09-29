@@ -1,0 +1,26 @@
+zapytania SQL
+select nazwa- 	wyświetl nazwę
+select nazwa,cena- 	wyświetl nazwę i cenę z tabeli
+from towary-	z tabeli towary
+where cena<1-	gdzie cena <1
+
+select {nazwa kolumny / kolumn} from {nazwa tabeli} where {warunek}nazwa kolumy w ktorej wykonywany jest warunek (pozwala znalezc odpowiednie rekordy)	
+
+to co miedzy SELECT a FROM zostanie wyswietlone	ze względu na warunek
+ 
+kwerenda=zapytanie
+
+wielkosc liter jest nieistotna dla slow kluczowych jezyka sql, dla nazw kolumn, tabel funkcji
+jednak jest istotna dla operatorow porownania; nazwy tabel lub kolumn gdy sa w cudzyslowie
+ulamki piszemu z kropka nie przecinkiem
+polecenia sql konczymy srednikiem
+
+select cena from filmy where rok_produkcji=1984 order by cena desc limit 1 /desc od najwiekszych do najmniejszych asc na odwrot
+
+select * from filmy where cena= min /zle
+
+select cena from filmy where cena= min /zle
+
+select * from filmy where rok_produkcji=1984
+
+*domyślnie jest asc*
