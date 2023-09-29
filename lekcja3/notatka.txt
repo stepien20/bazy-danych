@@ -68,6 +68,8 @@ IN-można parę wartości od razu wpisać a nie używać ||/OR
 'string' "string"-oznaczenie stringów (bez tego nie znajdzie!!!!)
 
 
+
+
 e)odczytaj rekordy w kol. cena posiadaja wartosc wieksza niz 9 
 jednoczesnie w rok produkcji maja wartosc 2004
 [SELECT * FROM filmy WHERE cena>9 && rok_produkcji=2004; ]
@@ -75,6 +77,62 @@ albo
 [SELECT * FROM filmy WHERE cena>9 AND rok_produkcji=2004;]
 
 
+
+f.1)odczytaj rekordy filmow sprzed roku 2000 kosztujacych pona 8
+[SELECT * FROM `filmy` WHERE rok_produkcji<2000 && cena>8; ]
+albo
+[SELECT * FROM `filmy` WHERE rok_produkcji<2000 AND cena>8; ]
+
+f.2)i jeszcze posortowane tytułem 
+[SELECT * FROM `filmy` WHERE rok_produkcji<2000 && cena>8 ORDER BY tytul; ]
+
+
+
+g)odczytaj rekordy filmu których 1 litera to 'T'
+[SELECT * FROM `filmy` WHERE SUBSTRING(tytul, 1, 1)='T'; ]
+albo
+[SELECT * FROM `filmy` WHERE LEFT(tytul,1)='T']
+albo
+[SELECT * FROM `filmy` WHERE tytul LIKE 'T%'] ***% to jest taka gwiazdka lol
+albo
+[SELECT * FROM `filmy` WHERE tytul REGEXP '^T']  
+albo
+[SELECT * FROM `filmy` WHERE tytul REGEXP '^T.*'](REGEXP używa dziwnych znaczków do tego
+ żeby to przeszukać {'^'-zaczyna szukanie 'T'-pierwsza litera '.'mówi że coś jeszcze 
+ '*' mówi że jest cokolwiek })
 ------------------------------------------------------
+/jak układać zapytanie/
+kolejność klauzul w poleceniach sql jest ściśle określona:
+SELECT
+FROM
+WHERE
+ORDER BY
+--------------------------------------------------------
+LEFT(string, dlugość)-bierze od LEWEJ strony ileś znaków w stringu
+np
+LEFT(tytul, 1) dla Terminator da nam 'T'
+LEFT(tytul, 3) dla Terminator da nam 'Ter'
+
+jest przeciwna RIGHT która bierze od prawej 
+
+------------------------------------------------------------
+FUNKCJE
+
+ROUND()
+{zwraca wartość argumentu zaokrągloną do liczby całkowitej lub danej liczb po przecinku}
 
 
+LENGTH()
+{zwraca liczbę znakó tekstu podanego jako argument}
+
+
+LOWER()
+{zamienia wszystkie litery na male}
+
+
+UPPER
+{zamienia wszystkie litery na duże}
+
+
+SUBSTRING
+{wycina itp itd}
