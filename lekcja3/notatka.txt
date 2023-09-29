@@ -105,6 +105,11 @@ albo
 h)odczytaj 3 pierwsze rekordy filmow alfabetycznie
 [SELECT * FROM `filmy`  ORDER BY tytul ASC LIMIT 3;]
 
+
+i)wyświetl tytuł i cenę 1 filmu z roku 1984 o najwyzszej cenie wypozyczenia
+[SELECT tytul,cena FROM `filmy` WHERE rok_produkcji=1984 ORDER BY cena DESC LIMIT 1;]
+
+
 ------------------------------------------------------
 /jak układać zapytanie/
 kolejność klauzul w poleceniach sql jest ściśle określona:
