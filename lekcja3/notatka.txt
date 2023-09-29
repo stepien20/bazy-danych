@@ -120,19 +120,25 @@ FUNKCJE
 
 ROUND()
 {zwraca wartość argumentu zaokrągloną do liczby całkowitej lub danej liczb po przecinku}
-
+[SELECT * FROM filmy WHERE ROUND(cena)=8]
+wybiera filmy gdzie cena zaokrągla się do 8
 
 LENGTH()
 {zwraca liczbę znakó tekstu podanego jako argument}
-
+[SELECT * FROM aktorzy WHERE LENGTH(imie)<=5]
+wybiera aktorów z imieniem z maks 5 literami
 
 LOWER()
 {zamienia wszystkie litery na male}
-
+[SELECT id_kopii,id_filmu,LOWER(czy_dostepna) FROM `kopie` ]
+zamienia czy_dostepna z duzych na male 
 
 UPPER
 {zamienia wszystkie litery na duże}
-
+[SELECT id_aktora,UPPER(imie),nazwisko FROM `aktorzy` ]
+zamienia imie na duże litery
 
 SUBSTRING
 {wycina itp itd}
+[SELECT * FROM `aktorzy` WHERE SUBSTRING(imie,1,2)="Ar"]
+wyświetla każdego aktora z imieniemem zaczynającym się na 'Ar'
