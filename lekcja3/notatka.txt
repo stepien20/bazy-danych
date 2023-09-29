@@ -63,6 +63,17 @@ albo
 [SELECT * FROM filmy WHERE rok_produkcji IN (1984,1986);]
 
 IN-można parę wartości od razu wpisać a nie używać ||/OR
+
+`kolumna`-oznaczenie kolumny (bez tego też działa)
+'string' "string"-oznaczenie stringów (bez tego nie znajdzie!!!!)
+
+
+e)odczytaj rekordy w kol. cena posiadaja wartosc wieksza niz 9 jednoczesnie w rok produkcji maja wartosc 2004
+[SELECT * FROM filmy WHERE cena>9 && rok_produkcji=2004; ]
+albo
+[SELECT * FROM filmy WHERE cena>9 AND rok_produkcji=2004;]
+
+
 ------------------------------------------------------
 
 
