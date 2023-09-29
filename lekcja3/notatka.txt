@@ -31,5 +31,16 @@ WHERE 1 -tam gdzie masz prawde; 0 nic nie wyświetli
 Uporządkowanie rekordów
 [SELECT * FROM tabela order by kolumna1, kolumna2]
 jeżeli w kolumnie1 jest tak samo to kolumna 2 rozstrzyga która bedzie wyżej/niżej
+ORDER BY - Uporządkowanie
+----------------------------------------------------------
+Polecenia
+odczytaj wszystkie rekordy z tabeli filmy uporzadkowane  malejaca dla filmow o jednakowej cenie
+ a rosnaca dla filmow wg tytulu
+
+[SELECT * FROM filmy ORDER BY cena DESC,tytul ASC; ]
+albo
+[SELECT * FROM filmy ORDER BY cena DESC,tytul;]
+bo domyślnie jest ASC
+------------------------------------------------------
 
 
