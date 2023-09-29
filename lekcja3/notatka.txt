@@ -158,7 +158,7 @@ ograniczenie zbioru odczytywanych rekordów
 
 SELECT * FROM tabela limit ile_rekordów_odczytać offset ile_rekordów_pominąć
 
-limit 5- bierze pierwsze 5
-offset 5 - skipuje pierwsze 5
+LIMIT 5- bierze pierwsze 5
+OFFSET 5 - skipuje pierwsze 5
 
-offset 5 limit 3- skipnie pierwsze 5 ale wezmie kolejne 3
+OFFSET 5 LIMIT 3- skipnie pierwsze 5 ale wezmie kolejne 3
