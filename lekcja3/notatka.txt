@@ -27,3 +27,9 @@ wybrane kolumny
 
 
 WHERE 1 -tam gdzie masz prawde; 0 nic nie wyświetli
+-------------------------------------------------------
+Uporządkowanie rekordów
+[SELECT * FROM tabela order by kolumna1, kolumna2]
+jeżeli w kolumnie1 jest tak samo to kolumna 2 rozstrzyga która bedzie wyżej/niżej
+
+
