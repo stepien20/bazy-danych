@@ -1,1 +1,29 @@
+typy projekcji:
+-pełen odczyt tabeli 
+[SELECT * FROM aktorzy; ]
+cała tabela
 
+-selekcja 
+[SELECT * FROM filmy WHERE rok_produkcji >1990; ]
+jakiś warunek
+
+-projekcja
+[SELECT tytul,cena FROM filmy; ]
+wybrane kolumny
+
+-operacja mnogościowa
+
+
+
+-połączenie
+
+
+
+-grupowanie
+
+
+
+-podzapytania
+
+
+WHERE 1 -tam gdzie masz prawde; 0 nic nie wyświetli
