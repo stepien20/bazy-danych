@@ -23,7 +23,7 @@ SELECT nazwisko FROM klienci WHERE imie Like "jan";
 
 
 4)
-
+SELECT imie,nazwisko FROM klienci WHERE length(imie)>length(nazwisko);
 
 5)
 
