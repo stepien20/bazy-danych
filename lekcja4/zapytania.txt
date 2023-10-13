@@ -36,8 +36,9 @@ SELECT DISTINCT id_kopii FROM `wypozyczenia` WHERE data_wypozyczenia BETWEEN "20
 albo 
 SELECT DISTINCT id_kopii FROM `wypozyczenia` WHERE data_wypozyczenia >="2005-07-15" and data_wypozyczenia <="2005-07-22" ORDER BY id_kopii 
 8)
-
-
+SELECT id_kopii,(data_zwrotu-data_wypozyczenia) AS czas FROM `wypozyczenia` WHERE data_zwrotu-data_wypozyczenia>1; 
+As- przedstawia cos za pomoca nowej kolumny tutaj jako czas dajemy roznice miedzy data zwrotu a wypozyczenia
+i dzieki temum ilosc czasu
 9)
 
 
