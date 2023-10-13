@@ -26,10 +26,10 @@ SELECT nazwisko FROM klienci WHERE imie Like "jan";
 SELECT imie,nazwisko FROM klienci WHERE length(imie)>length(nazwisko);
 
 5)
-
+SELECT nazwisko FROM aktorzy WHERE imie in ('Arnold',"Tom","Jodie") ORDER BY nazwisko DESC;
 
 6)
-
+SELECT DISTINCT id_filmu FROM kopie WHERE czy_dostepna="T" ORDER BY id_filmu; 
 
 7)
 
