@@ -2,3 +2,72 @@ where cena 5 and 9
 imie||" "||nazwisko
 where nazwisko like"%ski"
 rok_produkcji in (1986,1988)
+
+zapytania:
+1)
+
+SELECT * FROM filmy WHERE rok_produkcji IN (1998,1999);
+albo
+SELECT * FROM filmy WHERE rok_produkcji=1998 OR rok_produkcji=1999; 
+
+2)
+SELECT tytul,cena FROM filmy WHERE cena>9 ORDER BY cena; 
+
+
+3)
+SELECT nazwisko FROM klienci WHERE imie="Jan"; 
+albo 
+SELECT nazwisko FROM klienci WHERE imie IN ("jan"); 
+albo
+SELECT nazwisko FROM klienci WHERE imie Like "jan"; 
+
+
+4)
+
+
+5)
+
+
+6)
+
+
+7)
+
+
+8)
+
+
+9)
+
+
+10)
+
+
+11)
+
+
+12)
+
+
+13)
+
+
+14)
+
+
+15)
+
+
+16)
+
+
+17)
+
+
+18)
+
+
+19)
+
+
+20)
