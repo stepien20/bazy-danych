@@ -32,8 +32,9 @@ SELECT nazwisko FROM aktorzy WHERE imie in ('Arnold',"Tom","Jodie") ORDER BY naz
 SELECT DISTINCT id_filmu FROM kopie WHERE czy_dostepna="T" ORDER BY id_filmu; 
 
 7)
-SELECT DISTINCT id_kopii FROM `wypozyczenia` WHERE data_wypozyczenia BETWEEN "2005-07-15" and "2005-07-22 "ORDER BY id_kopii; 
-
+SELECT DISTINCT id_kopii FROM `wypozyczenia` WHERE data_wypozyczenia BETWEEN "2005-07-15" and "2005-07-22 "ORDER BY id_kopii;
+albo 
+SELECT DISTINCT id_kopii FROM `wypozyczenia` WHERE data_wypozyczenia >="2005-07-15" and data_wypozyczenia <="2005-07-22" ORDER BY id_kopii 
 8)
 
 
