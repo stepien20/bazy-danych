@@ -82,3 +82,32 @@ JOIN kopie on filmy.id_filmu=kopie.id_filmu
 JOIN wypozyczenia on wypozyczenia.id_kopii=kopie.id_kopii
 JOIN klienci on klienci.id_klienta=wypozyczenia.id_klienta
 WHERE klienci.nazwisko="Nowak";
+
+
+zad12  tytul filmu ktory zostal wypozyczony przez klienta o nazwisku kowalski ale nie nowak
+
+
+SELECT DISTINCT filmy.tytul from filmy
+JOIN kopie on filmy.id_filmu=kopie.id_filmu
+JOIN wypozyczenia on wypozyczenia.id_kopii=kopie.id_kopii
+JOIN klienci on klienci.id_klienta=wypozyczenia.id_klienta
+WHERE klienci.nazwisko="Kowalski"
+except
+SELECT DISTINCT filmy.tytul from filmy
+JOIN kopie on filmy.id_filmu=kopie.id_filmu
+JOIN wypozyczenia on wypozyczenia.id_kopii=kopie.id_kopii
+JOIN klienci on klienci.id_klienta=wypozyczenia.id_klienta
+WHERE klienci.nazwisko="Nowak"
+
+
+zad13 nazwsiko aktora ktorzy zagrali w terminator ale nie w ghostbusters
+
+SELECT DISTINCT aktorzy.nazwisko from aktorzy
+JOIN obsada on aktorzy.id_aktora=obsada.id_aktora
+JOIN filmy ON filmy.id_filmu=obsada.id_filmu
+WHERE filmy.tytul="Terminator"
+except
+SELECT DISTINCT aktorzy.nazwisko from aktorzy
+JOIN obsada on aktorzy.id_aktora=obsada.id_aktora
+JOIN filmy ON filmy.id_filmu=obsada.id_filmu
+WHERE filmy.tytul="Ghostbusters"
