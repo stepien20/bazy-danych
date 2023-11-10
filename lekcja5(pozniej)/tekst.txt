@@ -14,7 +14,71 @@ order by aktorzy.imie;
 
 zad 9 wspolna lista nazwisk akorow i klientow w jednej kolumnie uporzadkowany alfabetycznie
 
-SELECT DISTINCT nazwiskofrom klienci 
+SELECT DISTINCT nazwisko from klienci 
 UNION
 SELECT DISTINCT nazwisko from aktorzy
 order by nazwisko ASC
+// operatory zbiorowe https://www.cs.put.poznan.pl/pboinski/files/SBD/SQL_05_Polaczenia.pdf
+UNION - suma zbiorow bez powtarzania
+UNION ALL - suma zbiorow z powtarzaniem
+EXCEPT - roznica zbiorow 
+INTERSECT - czesc wspolna zbiorow
+
+UNION
+• suma zbiorów
+• eliminuje duplikaty
+UNION ALL 
+• suma zbiorów
+• nie eliminuje duplikatów
+INTERSECT
+• część wspólna zbiorów 
+• eliminuje duplikaty
+MINUS (standard SQL: EXCEPT)
+• różnica zbiorów 
+• eliminuje duplikaty
+• Operatory zbiorowe nazywamy również 
+operatorami złączeń pionowych 
+(vertical join) ponieważ łączą kolumny 
+zbiorów wynikowych.
+
+•W łączonych operatorami zbiorowymi klauzulach SELECT musi 
+wystąpić ta sama liczba atrybutów.
+• Typy odpowiednich atrybutów różnych klauzul SELECT muszą 
+być zgodne.
+• W wyniku zapytania pojawiają się nazwy atrybutów wyłącznie z 
+pierwszej klauzuli SELECT.
+• Klauzula ORDER BY może być użyta tylko jako ostatnia klauzula 
+zapytania.
+• Polecenia SELECT są wykonywane w kolejności ich wystąpienia 
+(od góry do dołu), nawiasy umożliwiają zmianę domyślnej 
+kolejności wykonywania łączonych operatorami zbiorowymi 
+poleceń SELECT.
+• UWAGA: w celu zapewnienia zgodności ze standardem SQL w 
+przyszłych wydaniach Oracle operator INTERSECT będzie miał 
+największy priorytet
+
+zad 10 tytul filmow gdzie razem grali aktorzy o nazwiskach "De Niro" i "Reno"
+
+SELECT DISTINCT filmy.tytul from filmy
+JOIN obsada ON filmy.id_filmu=obsada.id_filmu
+JOIN aktorzy ON aktorzy.id_aktora=obsada.id_aktora
+WHERE aktorzy.nazwisko="Reno"
+INTERSECT
+SELECT DISTINCT filmy.tytul from filmy
+JOIN obsada ON filmy.id_filmu=obsada.id_filmu
+JOIN aktorzy ON aktorzy.id_aktora=obsada.id_aktora
+WHERE aktorzy.nazwisko="De Niro"
+
+zad11 tytulu filmow ktore byly wypozyczone przez klienta o nazwisku "kowalski" i "nowak"
+
+SELECT DISTINCT filmy.tytul from filmy
+JOIN kopie on filmy.id_filmu=kopie.id_filmu
+JOIN wypozyczenia on wypozyczenia.id_kopii=kopie.id_kopii
+JOIN klienci on klienci.id_klienta=wypozyczenia.id_klienta
+WHERE klienci.nazwisko="Kowalski"
+intersect
+SELECT DISTINCT filmy.tytul from filmy
+JOIN kopie on filmy.id_filmu=kopie.id_filmu
+JOIN wypozyczenia on wypozyczenia.id_kopii=kopie.id_kopii
+JOIN klienci on klienci.id_klienta=wypozyczenia.id_klienta
+WHERE klienci.nazwisko="Nowak";
