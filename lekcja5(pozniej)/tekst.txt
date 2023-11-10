@@ -12,4 +12,9 @@ ON klienci.imie=aktorzy.imie
 order by aktorzy.imie;
 
 
-zad 9
+zad 9 wspolna lista nazwisk akorow i klientow w jednej kolumnie uporzadkowany alfabetycznie
+
+SELECT DISTINCT nazwiskofrom klienci 
+UNION
+SELECT DISTINCT nazwisko from aktorzy
+order by nazwisko ASC
