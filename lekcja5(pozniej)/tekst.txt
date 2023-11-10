@@ -1,1 +1,15 @@
+zad 7 tytul filmow wypozyczonych miedzy 2005-07-15 2005-07-25 wyelimiuj duplikaty
+SELECT DISTINCT filmy.tytul from filmy
+JOIN kopie ON filmy.id_filmu=kopie.id_filmu
+JOIN wypozyczenia ON kopie.id_kopii=wypozyczenia.id_kopii
+WHERE wypozyczenia.data_wypozyczenia BETWEEN "2005-07-15" and "2005-07-25"
+ORDER BY filmy.tytul
 
+zad 8 imie,nazwisko klienta nazwisko aktora gdy aktor i klient maja takie samo imie
+SELECT DISTINCT aktorzy.imie, klienci.nazwisko, aktorzy.nazwisko from aktorzy
+JOIN klienci 
+ON klienci.imie=aktorzy.imie
+order by aktorzy.imie;
+
+
+zad 9
