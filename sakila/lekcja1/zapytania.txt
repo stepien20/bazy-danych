@@ -16,3 +16,12 @@ JOIN country on country.country_id=city.country_id
 where country.country="Spain" order by customer.first_name;
 
 
+SELECT film.title,customer.first_name,customer.last_name,rental.rental_date, rental.return_date FROM inventory JOIN store ON store.store_id=inventory.store_id
+join film ON film.film_id=inventory.film_id
+JOIN rental on rental.inventory_id=inventory.inventory_id
+JOIN customer ON customer.customer_id=rental.customer_id
+WHERE store.store_id="1" order by customer.first_name DESC;
+
+
+zapytania bez joinow
+
