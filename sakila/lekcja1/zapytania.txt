@@ -27,3 +27,24 @@ WHERE store.store_id="1" order by customer.first_name DESC;
 
 zapytania bez joinow
 
+SELECT first_name,last_name FROM actor
+where length(first_name)<5 and length(last_name)<6;
+
+SELECT title,description,special_features from `film` WHERE special_features LIKE "%Trailers%"
+EXCEPT
+SELECT title,description,special_features from `film` WHERE special_features LIKE "%Deleted Scenes%";
+
+SELECT * from address
+WHERE district="Alberta"
+EXCEPT
+SELECT * from address
+WHERE phone="";
+
+
+SELECT  first_name,last_name,substring(email,1,length(email)-19)as login_do_poczty,right(email,19)as nazwa_poczty FROM `customer`;
+
+
+SELECT * FROM `address`
+where city_id>300 and last_update LIKE "2014-09%" and left(district,1)="L"
+INTERSECT
+SELECT * FROM `address` where length(postal_code)=5;
