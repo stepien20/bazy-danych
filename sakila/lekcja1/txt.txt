@@ -1,1 +1,3 @@
-zaytania z joinami
+zeby podlaczyc sakile to trzeba usunac klucze obce a zeby to sie 
+zimportowalo do innej nazwy bazy danych to zmienaisz w plikach nazawe 
+sakila na ta ktora chcesz, najpierw import schemes potem data
