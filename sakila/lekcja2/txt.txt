@@ -1,1 +1,15 @@
 zainstalowac w domy jakis workbench sql idk co to jest lol 
+
+
+polskojezyczne nazwy czyli ze znakami ćśńłżó itd maja inny wynik dlugosci, 
+np length('żółty') daje nam 8 co nie jest prawdą dlatego trzeba korzystać z 
+char_length('żółty') i tutaj daje wynik 5
+
+czyli length liczy ilosc bajtów (normalne maja 1 B polskie 2)
+natomiast char_length liczy ilość znaków
+
+mid(title,5,7) z title bierzemy od 5 znaku 7 kolejnych znakow
+offset pomija rekordy
+
+concat(title,'/',release_year) laczy title potem '/' i release_year w jeden string
+concat_ws('-',title,release_year) łączy wszystkie zmienne w środku (czyli title i release_year) znakiem '-' 
