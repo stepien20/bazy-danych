@@ -29,6 +29,10 @@ ceil(1.124)-zaokragla zawsze do gory czyli jak jest 0.00001 to i tak jest 1
 floor(1.9999) zaokragla zawsze w dol czyli jak jest 0.99999 to i tak to jest 0
 rand(2.345435) losowa liczba, jezeli w srodku jest liczba to jest to ziarno i zawsze dla tej wartosci jest okreslona wartosc
 
-
-
+ktora szysbza? -_______--fsdbhsdbjgs SPRAWDZIAN SPRAWDZIAN
+left(), substring()
 funkcje daty i czasu
+now()-teraz czas  
+current_timestamp()- teraz czas tez
+unix_timestamp(); - czas w unksie
+dayname (now())-
