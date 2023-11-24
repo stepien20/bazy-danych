@@ -35,4 +35,14 @@ funkcje daty i czasu
 now()-teraz czas  
 current_timestamp()- teraz czas tez
 unix_timestamp(); - czas w unksie
-dayname (now())-
+dayname (now())- nazwa dnia tygodnia
+dayofmonth(now(),dayofweek(now()),dayofyear(now())); liczymy tydzien od niedzieli btw
+month(now()),monthname(now())
+dayofweek(now()) co zwroci SPRAWDZIAN
+sec_to_time(900)
+time_to_sec('00:15:00');
+addtime('01:0:03',"11:12:12")-dodaje
+subtime('01:0:03',"11:12:12")-odejmuje
+adddate('2025-04-22',interval 55 day) 55 dni dalej od tej daty
+addate(now(), interval 55 day) 55 dni dalej od teraz
+subdate(now(),interval 55 day) 55 dni wczesniej od teraz
