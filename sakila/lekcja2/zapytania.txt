@@ -11,3 +11,5 @@ z agregacyjnymi
 SELECT customer.customer_id,sum(payment.amount) as suma, avg(payment.amount) as srednia, max(length(customer.first_name))
 from payment join customer on customer.customer_id=payment.customer_id
 where customer.customer_id=100;
+
+
