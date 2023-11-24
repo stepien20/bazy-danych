@@ -61,3 +61,7 @@ zapytanie z joinem z tych funkcji
 select district, count(*) as licznik from sakila.address group by district order by licznik desc;
 GROUP BY  grupuje rekordy wg czegos czyli tutaj grupujemy bo dzielnicy czy cos czyli 
 po dzielnicach i zliczylismy ich rekordy i posortowalismy je.
+
+
+select GROUP_CONCAT(address) from sakila.address where district="Texas";
+czyli scala wszystkie rekordy w kolumnie adresy
