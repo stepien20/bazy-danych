@@ -50,3 +50,6 @@ addate(now(), interval 55 day) 55 dni dalej od teraz
 subdate(now(),interval 55 day) 55 dni wczesniej od teraz
 
 
+count(*),min(amount),max(amount), sum(amount),avg(amount), std(amount)
+
+std() czyli odchylenie standardowe
