@@ -24,5 +24,11 @@ conv(21,10,2) liczba z jakiego systemu na jaki. czyli 21 w 10 na 2
 sign(-3) jaki znak (czy jest na plusie czy na minusie)
 PI() to PI
 round(pi(),2) zaokragla pi do 2 miejsc po przecinku
-truncate(3.43432432,2) tez zaokgragla w ten sam sposob
+truncate(3.43432432,2) tez zaokgragla ale truncate obcina reszte czyli jak jest 3.145 i dajemy 2 miejsca to bedzie 3.14 a nie 3.15
+ceil(1.124)-zaokragla zawsze do gory czyli jak jest 0.00001 to i tak jest 1
+floor(1.9999) zaokragla zawsze w dol czyli jak jest 0.99999 to i tak to jest 0
+rand(2.345435) losowa liczba, jezeli w srodku jest liczba to jest to ziarno i zawsze dla tej wartosci jest okreslona wartosc
 
+
+
+funkcje daty i czasu
