@@ -13,3 +13,16 @@ offset pomija rekordy
 
 concat(title,'/',release_year) laczy title potem '/' i release_year w jeden string
 concat_ws('-',title,release_year) łączy wszystkie zmienne w środku (czyli title i release_year) znakiem '-' 
+locate("co szukamy",title) szuka nam pozycji w stringu gdzie sie cos znajduje; nie odroznia wielkosc liter
+reverse(title) odwraca stringa
+
+POW(a,b) a do potegi B
+abs(a) |a|
+7 mod 3 albo 7%3 to modulo
+
+conv(21,10,2) liczba z jakiego systemu na jaki. czyli 21 w 10 na 2
+sign(-3) jaki znak (czy jest na plusie czy na minusie)
+PI() to PI
+round(pi(),2) zaokragla pi do 2 miejsc po przecinku
+truncate(3.43432432,2) tez zaokgragla w ten sam sposob
+
