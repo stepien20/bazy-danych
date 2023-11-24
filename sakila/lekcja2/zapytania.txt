@@ -1,0 +1,7 @@
+SELECT rental_id,inventory_id,rental_date,monthname(rental_date) as rental_month,return_date,dayname(return_date) as return_day FROM `rental` where dayname(return_date)="Monday" and monthname(rental_date)="May";
+
+SELECT lower(concat_ws('-',title,release_year,description)) as filmy, concat(length," min") as dlugosc_filmu,round(rental_rate) as zaokgraglony_rental_rate from film where floor(rental_rate);
+
+SELECT film.title,film.description, concat(mid(film.description,1,30),"....." )as skrocony_opis,actor.first_name,actor.last_name from film 
+JOIN film_actor on film.film_id=film_actor.film_id JOIN
+actor on actor.actor_id=film_actor.actor_id WHERE right(actor.first_name,2)="Ew";

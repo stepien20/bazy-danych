@@ -31,6 +31,8 @@ rand(2.345435) losowa liczba, jezeli w srodku jest liczba to jest to ziarno i za
 
 ktora szysbza? -_______--fsdbhsdbjgs SPRAWDZIAN SPRAWDZIAN
 left(), substring()
+
+
 funkcje daty i czasu
 now()-teraz czas  
 current_timestamp()- teraz czas tez
@@ -46,3 +48,5 @@ subtime('01:0:03',"11:12:12")-odejmuje
 adddate('2025-04-22',interval 55 day) 55 dni dalej od tej daty
 addate(now(), interval 55 day) 55 dni dalej od teraz
 subdate(now(),interval 55 day) 55 dni wczesniej od teraz
+
+
