@@ -65,3 +65,11 @@ po dzielnicach i zliczylismy ich rekordy i posortowalismy je.
 
 select GROUP_CONCAT(address) from sakila.address where district="Texas";
 czyli scala wszystkie rekordy w kolumnie adresy
+
+select GROUP_CONCAT(address SEPARATOR '--jakis separator--') from sakila.address where district="Texas";
+dodaje separator miedzy rekordami 
+
+select district,GROUP_CONCAT(address ORDER BY district SEPARATOR '-') from sakila.address group by district;
+DO SPRAWDZIANIU TO GOWNO 
+
+zaczynamy od zapytania 5
