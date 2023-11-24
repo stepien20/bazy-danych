@@ -5,3 +5,9 @@ SELECT lower(concat_ws('-',title,release_year,description)) as filmy, concat(len
 SELECT film.title,film.description, concat(mid(film.description,1,30),"....." )as skrocony_opis,actor.first_name,actor.last_name from film 
 JOIN film_actor on film.film_id=film_actor.film_id JOIN
 actor on actor.actor_id=film_actor.actor_id WHERE right(actor.first_name,2)="Ew";
+
+
+z agregacyjnymi 
+SELECT customer.customer_id,sum(payment.amount) as suma, avg(payment.amount) as srednia, max(length(customer.first_name))
+from payment join customer on customer.customer_id=payment.customer_id
+where customer.customer_id=100;
