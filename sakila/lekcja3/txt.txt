@@ -1,0 +1,202 @@
+----------------------------1 GRUDNIA----------------------------
+
+select first_name as 'imie', last_name 'nazwisko' from sakila.actor order by nazwisko limit 10 offset 4; 
+offset pomijamy limit to limit ile sie wyswietla
+
+select title, release_year, replacement_cost from sakila.film order by replacement_cost DESC, title; 
+
+select title, release_year, replacement_cost, rental_rate from sakila.film order by replacement_cost DESC, rental_rate ASC, title ASC; 
+
+ja idk co sie dzieje
+
+pytanko do spr: pierszenstwo czyli 
+order by replacement_cost DESC(to 1), rental_rate ASC(to 2), title ASC(to 3); 
+
+aliasy jakies że były i powtórka z tego (AS lub bez as)
+
+zad 6
+stworz zapytanie sortujace i podaj definicje zaleznosci 
+pierszenstwa wynikow sortowania
+
+-----MOJE ZAPYTANIE ZAD6-----
+select first_name, last_name from sakila.actor 
+where length(actor.first_name)%2=1 order by first_name ASC,last_name DESC;
+
+pierszenstwo ma pierwsze po order by a potem reszta
+
+zad 7
+stworz zaytanie przetestuj w sql warunki wielokrotnie zlozone oddzielone 
+or and and tj. wiele warunkow w jednym zapytaniu, korzystaj z nawiasow 
+napisz co ma pierszenstwo or czy and
+
+-----MOJE ZAPYTANIE ZAD7-----
+select city, city.city_id from sakila.city
+where length(city.city)%2=0 and city.city like "%a" or city.city_id >2 order by city.city asc;
+
+pierszensztwo ma OR, wyszykuje miasa z parzysta iloscia litr konczace sie na a LUB city id jest wieksze niz 2
+
+=======================================================================
+select title, description, rating from sakila.film
+where rating IN('G', 'PG') order by rating;
+
+=======================================================================
+------MOJE ZAD8------
+zad 8
+stworz zapytanie przetestuj w SQL warunki wielokrotnie zlozone (odzielone or,and)
+tj. wiele warunkow w jedny zapytaniu uzywajac LIKE oraz IN
+
+select film.title, film.rental_duration from film 
+where film.title like "a%" 
+and film.rental_duration IN('6') 
+and film.release_year > 2005  
+OR
+film.rental_duration IN('7')
+and film.release_year > 2005  
+order by film.title asc;
+
+=======================================================================
+
+select first_name, last_name from customer
+where last_name between 'D' and 'E' order by last_name;
+
+select  first_name, last_name from customer
+where left(last_name,1) between 'D' and 'E' ORDER BY last_name;
+
+na sprawdzian between
+=======================================================================
+zad 9 
+stworz zapytanie uzywajac between and right() a takze kilku funkcji wbudowanych
+
+----MOJE ZAD9----
+select  film.title, film.rating from film
+where right(film.title, 1) between 'D' and 'F' 
+or rating IN('G')
+ORDER BY film.title desc;
+
+=======================================================================
+select title from sakila.film where title like '__a%'; 
+wyszukuje na 3 miejscu w tytule litera a
+=======================================================================
+zad 10
+stworz zapytanie uzywajac wyrazenia __%  dodaj znak wiekszoci lub mniejszosci jesli sa to liczby
+lub uzywajac funkcji dlugosci jesli sa to znaki
+
+select actor.first_name, actor.last_name from actor 
+where actor.first_name like '__a%' 
+or length(actor.last_name)%2=1 
+and length(actor.first_name)%2=1 
+order by actor.first_name asc;
+=======================================================================
+select title from film where title regexp '^[a-e]';
+filmy od a do e wyswietla
+regexp to przedzial
+
+select title from film where title regexp '^.[a-e]';
+. okresla miejsca +1, czyli na drugim
+=======================================================================
+zad 11
+stworz zapytanie zlozone uzywajac regexow innej opcji '^ [a-e]'
+
+----MOJE ZAD11----
+
+select title, rental_rate from film
+where title regexp '^..[e-g]'
+OR
+film.rental_rate=4.99
+order by title asc;
+
+=======================================================================
+select title from film where title regexp 'w$';
+tytul co sie konczy na 'w'
+
+select title from film where title regexo 'a.c';
+. to dowolny znak czyli "a coś c", np. adc, agc..
+=======================================================================
+zad 12
+stworz zapytanie uzywajac np. 'w$';'a.c' i z join
+----MOJE ZAD12----
+
+select customer.first_name, 
+customer.last_name, address from customer 
+join address on customer.address_id=address.address_id 
+where customer.first_name regexp 'a$' 
+order by customer.first_name; 
+
+=======================================================================
+
+select title from film where title regexp '[[tilde.]; nie dziala
+select title from film where title regexp '[[:space:]]'; dziala
+
+select title from film where title regexp '^[^a-x]';
+^ w srodku TO ZAPRZECZENIE, WSZYSTKO TO CO NIE JEST OD A DO X
+
+select title from film where title rlike '^[^a.x]';
+a to nwm, conajmniej 1 litera pomiedzy???
+=======================================================================
+zad 13
+stworz zapytanie z rlike '^[^a.x]' uzyj join
+---MOJE ZAD13----
+
+select customer.first_name,customer.last_name, address.address 
+from customer 
+JOIN address 
+on address.address_id=customer.address_id 
+where customer.first_name rlike '^[^f.x]' 
+and customer.last_name rlike '^[^a.b]' 
+order by customer.first_name desc; 
+
+zad 14
+stworz zapytanie zawierajace jak najwiecej elementow z 13 naszych zapytan wczesniejszych zadan
+
+----MOJE ZAD14----
+select title, actor.first_name, actor.last_name, film.release_year,
+film.rental_duration,film.rating
+from film 
+join film_actor 
+on film.film_id=film_actor.film_id 
+join actor 
+on film_actor.actor_id=actor.actor_id 
+where (title regexp '[[:space:]]' 
+and actor.first_name regexp '^[b-c]') 
+OR (film.rating IN('G') and 
+actor.last_name like "%a" and film.title regexp '^[a-b]')
+or (film.rental_duration IN('7') and film.release_year > 2005); 
+=======================================================================
+1. zawsze SELECT
+
+insert into sakila.actor values(201, 'Henry', 'Cavill', '2023-02-22 18:56:30');
+TO DODAJE DO TEJ LISTY Z AKTORAMI
+
+delete from sakila.actor where actor_id>200;
+USUWA 
+
+2. pamietaj o warunku przy delecie (USUWANIU)
+
+select * from sakila.actor where actor_id>200;
+wybiera henrego cavilla
+
+select * from sakila.actor;
+wszystko z tej listy
+
+describe sakila.actor; 
+(do spr) 
+auto_increment - id beda zapisywane automatycznie
+
+current_timestamp()
+
+on update current_timestamp()
+
+insert into sakila.actor(first_name, last_name) values('Jason', 'Momoa');
+select * from sakila.actor;
+
+insert into sakila.actor(actor_id,first_name, last_name) values(203, 'Ben', 'Affleck');
+insert into sakila.actor(actor_id,first_name, last_name) values(203, 'Pawel', 'Nierodka');
+(za 2 razem blad)
+
+select * from sakila.actor where last_name="Affleck";
+select * from sakila.actor where actor_id='203';
+update sakila.actor set first_name = 'Bruce' where actor_id='203';
+update sakila.actor set first_name = 'Gal', last_name='Gadot' where actor actor_id='203';
+delete from sakila.actor where actor_id>200;
+i usuniete
+3. odszukiwanie id jak chcesz zrobic update
