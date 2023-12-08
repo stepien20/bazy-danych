@@ -28,9 +28,48 @@ d float,
 e double,
 f double,
 g decimal(4,2),
-h decimal(4,2),
+h decimal(4,2), 
 );
+decimal(4,2) 4 przed i 2 po przecinku
 
 insert into liczby VALUES (1,2,1.1,2.2,1.1,2.2,1.1,2.2)
 
 SELECT a+b,c+d,e+f,g+h,a+b > 3 from liczby;
+
+SELECT a+b,c+d,e+f,g+h,a+b < 3, c+d=3.30, e+f=3.3, g+h=3.3 from liczby;
+
+typy liczbowe   dlugosc
+tinyint             1
+smallint            2
+mediumint           3
+int                 4
+bigint              8
+float               4
+double              8
+decimal(m,d)        M+2
+
+
+typ znakowy
+char                255
+varchar             255
+tinytext             255
+text                65535
+tintextmediumtext   16777215
+longtext            4 294 967 295
+enum                1-65 535
+set                 1-64
+
+
+typy binarne
+tinyblob
+blob
+mediumblob
+longblob
+
+
+typy daty i czasu
+date 
+datetime 
+timestamp 
+time 
+year
