@@ -1,1 +1,36 @@
+zad  2.16
+SELECT customer_id,first_name, last_name, active from `customer` where store_id=2 and active=0;
 
+SELECT COUNT(customer_id) from `customer` where store_id=2 and active=0;
+
+
+
+gdzies tam outer join jeszcze jako rodazj joinow
+
+
+zad 2.17
+SELECT title from `film` where replacement_cost BETWEEN 25 and 30 order by rental_rate LIMIT 100;
+
+zad 3.18
+SELECT * from country where country_id=76;
+update country set country="Polska" where country_id=76;
+
+zad 4.19
+insert into city(city_id,city,country_id) VALUES (601,"Gliwice",76)
+
+create DATABASE liczone;
+
+create TABLE liczby(
+a INT,
+b int,
+c float,
+d float,
+e double,
+f double,
+g decimal(4,2),
+h decimal(4,2),
+);
+
+insert into liczby VALUES (1,2,1.1,2.2,1.1,2.2,1.1,2.2)
+
+SELECT a+b,c+d,e+f,g+h,a+b > 3 from liczby;
