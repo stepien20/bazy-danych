@@ -19,21 +19,19 @@ stworz zapytanie sortujace i podaj definicje zaleznosci
 pierszenstwa wynikow sortowania
 
 -----MOJE ZAPYTANIE ZAD6-----
-select first_name, last_name from sakila.actor 
-where length(actor.first_name)%2=1 order by first_name ASC,last_name DESC;
+SELECT first_name,last_name,email from `customer` WHERE last_name<first_name ORDER BY first_name,last_name,email;
+
 
 pierszenstwo ma pierwsze po order by a potem reszta
-
 zad 7
 stworz zaytanie przetestuj w sql warunki wielokrotnie zlozone oddzielone 
 or and and tj. wiele warunkow w jednym zapytaniu, korzystaj z nawiasow 
 napisz co ma pierszenstwo or czy and
 
 -----MOJE ZAPYTANIE ZAD7-----
-select city, city.city_id from sakila.city
-where length(city.city)%2=0 and city.city like "%a" or city.city_id >2 order by city.city asc;
+SELECT * FROM `address` WHERE length(district)>10 and address LIKE "%e" or postal_code>83000 order by address DESC;
 
-pierszensztwo ma OR, wyszykuje miasa z parzysta iloscia litr konczace sie na a LUB city id jest wieksze niz 2
+pierszensztwo ma OR, wyświetla adresy z wiekszą iloscią liter niż 10 konczace sie na e LUB postal code jest wieksze niz 83000
 
 =======================================================================
 select title, description, rating from sakila.film
@@ -45,14 +43,7 @@ zad 8
 stworz zapytanie przetestuj w SQL warunki wielokrotnie zlozone (odzielone or,and)
 tj. wiele warunkow w jedny zapytaniu uzywajac LIKE oraz IN
 
-select film.title, film.rental_duration from film 
-where film.title like "a%" 
-and film.rental_duration IN('6') 
-and film.release_year > 2005  
-OR
-film.rental_duration IN('7')
-and film.release_year > 2005  
-order by film.title asc;
+SELECT * FROM `film` WHERE rating in ("PG","G","R") and rental_duration>6 or length like "%6%";
 
 =======================================================================
 
@@ -68,10 +59,10 @@ zad 9
 stworz zapytanie uzywajac between and right() a takze kilku funkcji wbudowanych
 
 ----MOJE ZAD9----
-select  film.title, film.rating from film
-where right(film.title, 1) between 'D' and 'F' 
-or rating IN('G')
-ORDER BY film.title desc;
+select  * from film
+where right(length, 1) between '1' and '5' 
+or rating IN('G',"PG","R") and length(title)>20
+ORDER BY title asc;
 
 =======================================================================
 select title from sakila.film where title like '__a%'; 
@@ -99,12 +90,11 @@ stworz zapytanie zlozone uzywajac regexow innej opcji '^ [a-e]'
 
 ----MOJE ZAD11----
 
-select title, rental_rate from film
-where title regexp '^..[e-g]'
+select* from film
+where film.rental_rate>4
 OR
-film.rental_rate=4.99
-order by title asc;
-
+title regexp '^..[a-j]'
+order by title desc;
 =======================================================================
 select title from film where title regexp 'w$';
 tytul co sie konczy na 'w'
@@ -116,11 +106,7 @@ zad 12
 stworz zapytanie uzywajac np. 'w$';'a.c' i z join
 ----MOJE ZAD12----
 
-select customer.first_name, 
-customer.last_name, address from customer 
-join address on customer.address_id=address.address_id 
-where customer.first_name regexp 'a$' 
-order by customer.first_name; 
+select customer.first_name, customer.last_name,address.district, address.address from customer join address on customer.address_id=address.address_id where customer.first_name regexp 'a$' and (address.address REGEXP 'e$' or address.address REGEXP 't$') order by customer.first_name;
 
 =======================================================================
 
@@ -138,29 +124,22 @@ stworz zapytanie z rlike '^[^a.x]' uzyj join
 ---MOJE ZAD13----
 
 select customer.first_name,customer.last_name, address.address 
-from customer 
-JOIN address 
-on address.address_id=customer.address_id 
-where customer.first_name rlike '^[^f.x]' 
-and customer.last_name rlike '^[^a.b]' 
-order by customer.first_name desc; 
+from customer JOIN address on address.address_id=customer.address_id 
+where customer.first_name rlike '^[^a.b]' 
+and customer.last_name rlike '^[^a.o]'
+or address.address RLIKE 'ard$'
+order by customer.first_name desc;
 
 zad 14
 stworz zapytanie zawierajace jak najwiecej elementow z 13 naszych zapytan wczesniejszych zadan
 
 ----MOJE ZAD14----
-select title, actor.first_name, actor.last_name, film.release_year,
-film.rental_duration,film.rating
-from film 
-join film_actor 
-on film.film_id=film_actor.film_id 
-join actor 
-on film_actor.actor_id=actor.actor_id 
-where (title regexp '[[:space:]]' 
-and actor.first_name regexp '^[b-c]') 
-OR (film.rating IN('G') and 
-actor.last_name like "%a" and film.title regexp '^[a-b]')
-or (film.rental_duration IN('7') and film.release_year > 2005); 
+SELECT film.title,film.release_year,film.rating,actor.first_name from film
+join film_actor on film.film_id=film_actor.film_id 
+join actor on actor.actor_id=film_actor.actor_id 
+where ((film.release_year BETWEEN 1980 and 2007) and film.rating in ('G','PG','R'))
+or (actor.first_name REGEXP'^[^a-g]' and actor.last_name like '_a%') 
+ORDER BY `film`.`release_year` ASC;
 =======================================================================
 1. zawsze SELECT
 
