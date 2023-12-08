@@ -94,3 +94,34 @@ INSERT INTO zapas(nazwa,stan) VALUES('Mleko','wysoki');
 INSERT INTO zapas(nazwa,stan) VALUES('Ser','sredni');
 INSERT INTO zapas(nazwa,stan) VALUES('Jogurt','niski');
 INSERT INTO zapas(nazwa,stan) VALUES('Kefir','wysoki');
+
+INSERT INTO zapas(nazwa,stan) VALUES('Kefir','wysoka');// nie da stanu
+INSERT INTO zapas(nazwa,stan) VALUES('Kefir','3');  //  daje nam 3 z tej krotki enum czyli niski
+usuwamy te 2 
+
+create database magazyn
+create table targ(
+    id SERIAL,
+    produkt varchar(100),
+    rodzaj enum('warzywo','owoc','pieczywo','słodycze','inne'),
+    kraj enum('Polska','Niemcy','Włochy','inne')
+)
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Gruszka",2,1);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Winogrono",2,3);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Brzoskwinia",2,2);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Ananas",2,4);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Banan",2,4);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Marchew",1,1);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Rzodkiew",1,2);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Sałata",1,3);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Papryka",1,3);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Ziemniaki",1,1);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Pietruszka",1,1);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Bakłażan",1,4);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Brokuł",2,1);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Jabłko",2,1);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Jabłko",2,1);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Czekolada",4,2);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Bagietka",3,4);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Chleb",3,1);
+INSERT into targ(produkt,rodzaj,kraj) VALUES ("Bułka",3,1);
