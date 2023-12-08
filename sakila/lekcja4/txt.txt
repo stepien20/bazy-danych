@@ -88,3 +88,9 @@ stan ENUM('wysoki','sredni,'niski')
 
 
 );
+
+
+INSERT INTO zapas(nazwa,stan) VALUES('Mleko','wysoki');
+INSERT INTO zapas(nazwa,stan) VALUES('Ser','sredni');
+INSERT INTO zapas(nazwa,stan) VALUES('Jogurt','niski');
+INSERT INTO zapas(nazwa,stan) VALUES('Kefir','wysoki');
