@@ -73,9 +73,9 @@ stworz zapytanie uzywajac wyrazenia __%  dodaj znak wiekszoci lub mniejszosci je
 lub uzywajac funkcji dlugosci jesli sa to znaki
 
 select actor.first_name, actor.last_name from actor 
-where actor.first_name like '__a%' 
-or length(actor.last_name)%2=1 
-and length(actor.first_name)%2=1 
+where actor.first_name like '__t%' 
+or actor.last_name like '__a%'
+or (length(first_name)>4 AND length(last_name)>5)
 order by actor.first_name asc;
 =======================================================================
 select title from film where title regexp '^[a-e]';
@@ -90,11 +90,11 @@ stworz zapytanie zlozone uzywajac regexow innej opcji '^ [a-e]'
 
 ----MOJE ZAD11----
 
-select* from film
-where film.rental_rate>4
-OR
-title regexp '^..[a-j]'
-order by title desc;
+select * from film
+where title regexp '^[^a].[a]'
+or 
+title REGEXP '^[a].[b-g]'
+order by title asc;
 =======================================================================
 select title from film where title regexp 'w$';
 tytul co sie konczy na 'w'
@@ -106,7 +106,11 @@ zad 12
 stworz zapytanie uzywajac np. 'w$';'a.c' i z join
 ----MOJE ZAD12----
 
-select customer.first_name, customer.last_name,address.district, address.address from customer join address on customer.address_id=address.address_id where customer.first_name regexp 'a$' and (address.address REGEXP 'e$' or address.address REGEXP 't$') order by customer.first_name;
+select actor.first_name, actor.last_name, film.title, film.description  from `actor` 
+join film_actor on actor.actor_id=film_actor.actor_id 
+join film on film_actor.film_id=film.film_id 
+WHERE  film.title REGEXP '^[a].*[a]$' 
+OR (first_name REGEXP '^[^a].*' and last_name REGEXP '^[^a].*');
 
 =======================================================================
 
@@ -123,12 +127,12 @@ zad 13
 stworz zapytanie z rlike '^[^a.x]' uzyj join
 ---MOJE ZAD13----
 
-select customer.first_name,customer.last_name, address.address 
-from customer JOIN address on address.address_id=customer.address_id 
-where customer.first_name rlike '^[^a.b]' 
-and customer.last_name rlike '^[^a.o]'
-or address.address RLIKE 'ard$'
-order by customer.first_name desc;
+select actor.first_name, actor.last_name, film.title, film.description  from `actor` 
+join film_actor on actor.actor_id=film_actor.actor_id 
+join film on film_actor.film_id=film.film_id 
+WHERE film.title RLIKE '^a.e.*' 
+or (actor.first_name RLIKE '^a.*' and actor.last_name RLIKE '^..e.*')
+order by actor.first_name ASC;
 
 zad 14
 stworz zapytanie zawierajace jak najwiecej elementow z 13 naszych zapytan wczesniejszych zadan
