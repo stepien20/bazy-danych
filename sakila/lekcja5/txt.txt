@@ -3,3 +3,10 @@ alejka SET('biala','czerwona','zielona')
 
 i wtedy mozna zrobic insert into magazyn(nazwa,alejka) VALUES('Jogurt owocowy','zielona,biala')
 czyli 2 wartosci z set 
+
+
+create table magazyn(
+id SERIAL,
+nazwa VARCHAR(100)
+alejka SET('biala','czerwona','zielona')
+);
