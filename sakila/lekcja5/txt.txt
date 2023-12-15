@@ -46,3 +46,13 @@ INSERT INTO towary(nazwa) VALUES('Mleko');
 INSERT INTO towary(nazwa) VALUES('Smietana');
 INSERT INTO towary(nazwa) VALUES('Ser');
 INSERT INTO towary(nazwa) VALUES('Jogurt');
+
+
+
+
+create table platnosci(
+id SERIAL,
+imie_klienta varchar(255),
+kwota_zakupu double,
+data_zarejestrowania datetime 
+)
