@@ -59,3 +59,6 @@ data_zarejestrowania datetime
 
 
 INSERT into platnosci(imie_klienta,kwota_zakupu,data_zarejestrowania) VALUES ('Adam',19.34,'2015-03-15 14:15:25'); 
+
+nie zmienia z NULLA na wartosc daty lol
+UPDATE magazyn.platnosci set kwota_zakupu=13.50 WHERE id=3;
