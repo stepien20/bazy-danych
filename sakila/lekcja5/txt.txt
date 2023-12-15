@@ -77,3 +77,6 @@ INSERT INTO films(nazwa_filmu,dlugosc_filmu,rok_produkcji) VALUES('Ariel',138,'2
 INSERT INTO films(nazwa_filmu,dlugosc_filmu,rok_produkcji) VALUES('Ariel',138,'2023');
 INSERT INTO films(nazwa_filmu,dlugosc_filmu,rok_produkcji) VALUES('Zaplatani',180,'1999'); 
 INSERT INTO films(nazwa_filmu,dlugosc_filmu) VALUES('Piraci z Karaibow',95); 
+update films SET dlugosc_filmu=90 WHERE id=4
+
+tez sie nei zmienia czas sam 
