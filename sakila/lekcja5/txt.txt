@@ -12,3 +12,20 @@ create table magazyn( id SERIAL, produkt varchar(100), a1lejka SET('zielona','bi
 create table firmy( id SERIAL, nazwa varchar(100), kraje SET('Polska','Niemcy','Rosja','Francja','Anglia'), dzialalnosc SET ('wlokiennictwo','przemysl spozywczy','przemysl kosmetyczny','catering') ); 
 
 INSERT into firmy(nazwa,kraje,dzialalnosc) VALUES('Polex','1,2,3','1');
+
+INSERT into firmy(nazwa,kraje,dzialalnosc) VALUES('firma1','1','1');
+
+set po numerach bierze w taki sposób:
+
+SET('Polska','Niemcy','Rosja','Francja','Anglia')
+
+kazdy indeks to potega dwojki czyli
+polska to 1
+niemcy to 2
+rosja to 4
+francja to 8
+anglia to 16
+
+jezeli chcemy np polske i rosje to musimy wpisac sume tych liczb czyli 5
+
+jezeli chcemy francje rosje i polske o robimy 8+4+1 czyli 13
