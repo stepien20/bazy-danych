@@ -56,3 +56,6 @@ imie_klienta varchar(255),
 kwota_zakupu double,
 data_zarejestrowania datetime 
 )
+
+
+INSERT into platnosci(imie_klienta,kwota_zakupu,data_zarejestrowania) VALUES ('Adam',19.34,'2015-03-15 14:15:25'); 
