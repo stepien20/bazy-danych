@@ -35,3 +35,10 @@ SELECT customer_id,SUM(amount), avg(amount)
 FROM sakila.payment
 WHERE
 customer_id IN(SELECT customer_id from sakila.customer where first_name="Marion");
+
+CREATE TABLE towary(
+id SERIAL,
+nazwa VARCHAR(255),
+przyjecie	TIMESTAMP
+);
+
