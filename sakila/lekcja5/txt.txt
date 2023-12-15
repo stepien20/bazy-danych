@@ -80,3 +80,12 @@ INSERT INTO films(nazwa_filmu,dlugosc_filmu) VALUES('Piraci z Karaibow',95);
 update films SET dlugosc_filmu=90 WHERE id=4
 
 tez sie nei zmienia czas sam 
+
+
+create table obowiazki(
+id SERIAL,
+nazwa varchar(255),
+rok_produkcji time
+)
+
+
