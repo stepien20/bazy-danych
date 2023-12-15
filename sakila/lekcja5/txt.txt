@@ -42,3 +42,7 @@ nazwa VARCHAR(255),
 przyjecie	TIMESTAMP
 );
 
+INSERT INTO towary(nazwa) VALUES('Mleko');
+INSERT INTO towary(nazwa) VALUES('Smietana');
+INSERT INTO towary(nazwa) VALUES('Ser');
+INSERT INTO towary(nazwa) VALUES('Jogurt');
