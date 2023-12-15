@@ -29,3 +29,9 @@ anglia to 16
 jezeli chcemy np polske i rosje to musimy wpisac sume tych liczb czyli 5
 
 jezeli chcemy francje rosje i polske o robimy 8+4+1 czyli 13
+
+
+SELECT customer_id,SUM(amount), avg(amount)
+FROM sakila.payment
+WHERE
+customer_id IN(SELECT customer_id from sakila.customer where first_name="Marion");
