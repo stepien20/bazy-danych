@@ -10,3 +10,5 @@ create table magazyn( id SERIAL, produkt varchar(100), a1lejka SET('zielona','bi
 
 
 create table firmy( id SERIAL, nazwa varchar(100), kraje SET('Polska','Niemcy','Rosja','Francja','Anglia'), dzialalnosc SET ('wlokiennictwo','przemysl spozywczy','przemysl kosmetyczny','catering') ); 
+
+INSERT into firmy(nazwa,kraje,dzialalnosc) VALUES('Polex','1,2,3','1');
