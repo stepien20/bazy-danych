@@ -36,6 +36,7 @@ FROM sakila.payment
 WHERE
 customer_id IN(SELECT customer_id from sakila.customer where first_name="Marion");
 
+zad22
 CREATE TABLE towary(
 id SERIAL,
 nazwa VARCHAR(255),
@@ -49,7 +50,7 @@ INSERT INTO towary(nazwa) VALUES('Jogurt');
 
 
 
-
+zad23
 create table platnosci(
 id SERIAL,
 imie_klienta varchar(255),
@@ -62,3 +63,17 @@ INSERT into platnosci(imie_klienta,kwota_zakupu,data_zarejestrowania) VALUES ('A
 
 nie zmienia z NULLA na wartosc daty lol
 UPDATE magazyn.platnosci set kwota_zakupu=13.50 WHERE id=3;
+
+
+zad24
+create table films(
+id SERIAL,
+nazwa_filmu varchar(255),
+dlugosc_filmu double,
+rok_produkcji year
+)
+
+INSERT INTO films(nazwa_filmu,dlugosc_filmu,rok_produkcji) VALUES('Ariel',138,'2023');
+INSERT INTO films(nazwa_filmu,dlugosc_filmu,rok_produkcji) VALUES('Ariel',138,'2023');
+INSERT INTO films(nazwa_filmu,dlugosc_filmu,rok_produkcji) VALUES('Zaplatani',180,'1999'); 
+INSERT INTO films(nazwa_filmu,dlugosc_filmu) VALUES('Piraci z Karaibow',95); 
