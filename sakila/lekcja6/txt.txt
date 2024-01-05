@@ -1,1 +1,4 @@
-
+zapytanai sql dokonujące agregacji.tzw zapytania agregujace posługują się trzema ważnymi elementami składniowymi 
+1.GROUP BY               wskazująca sposób podziału rekordów tabeli na tzw. grupy
+2.funkcje grupowe sql    które umożliwiają wyliczanie sum,średnich,odchyleń, minimów,maksimów itd. dla każdej grupy
+3.HAVING                 umożliwiają odrzucenie grup niespełniających podanego warunku logicznego
