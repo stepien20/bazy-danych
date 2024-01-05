@@ -2,3 +2,11 @@ zapytanai sql dokonujące agregacji.tzw zapytania agregujace posługują się tr
 1.GROUP BY               wskazująca sposób podziału rekordów tabeli na tzw. grupy
 2.funkcje grupowe sql    które umożliwiają wyliczanie sum,średnich,odchyleń, minimów,maksimów itd. dla każdej grupy
 3.HAVING                 umożliwiają odrzucenie grup niespełniających podanego warunku logicznego
+
+funckje grupowe:
+sum()       suma wartości podanej kolumny we wszystkcih rekordach
+avg()       średnia arytmetyczna wartośći podanej kolumny we wszystkich rekordach grupy
+min()       najmniejsza wartość podanej kolumny we wszystkich rekordach grupy
+max()       największa wartość podanej kolumny we wszystkich rekordach grupy
+count(*)    liczba wszystkich rekordów grupy
+
