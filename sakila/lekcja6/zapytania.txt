@@ -1,1 +1,10 @@
+zad wyznacz średnią pensję wszystkich pracowników niepracujących w londynie
+SELECT avg(pensja) from pracownicy where miasto!="London";
 
+zad wyznacz średnie pensje pracownikow z podzialem na miasta a nastepnei wybierz te grupy (miasta) ktorych srednia pensja przekroczyla 100
+SELECT avg(pensja),miasto from pracownicy group by miasto HAVING avg(pensja)>100;
+
+
+zad.1
+Dla kazdego roku produkcji filmu wyswietl srednia cene wypozyczenia
+SELECT avg(cena),rok_produkcji from filmy group by rok_produkcji order by rok_produkcji desc;
