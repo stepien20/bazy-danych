@@ -8,3 +8,4 @@ SELECT avg(pensja),miasto from pracownicy group by miasto HAVING avg(pensja)>100
 zad.1
 Dla kazdego roku produkcji filmu wyswietl srednia cene wypozyczenia
 SELECT avg(cena),rok_produkcji from filmy group by rok_produkcji order by rok_produkcji desc;
+
