@@ -4,3 +4,10 @@ MAX(wypozyczenia.data_zwrotu-wypozyczenia.data_wypozyczenia),1), round(
 AVG(wypozyczenia.data_zwrotu-wypozyczenia.data_wypozyczenia),1) as sre, COUNT(filmy.id_filmu) as razy FROM wypozyczenia 
 JOIN kopie ON kopie.id_kopii=wypozyczenia.id_kopii 
 JOIN filmy ON filmy.id_filmu=kopie.id_filmu GROUP BY filmy.id_filmu ORDER BY COUNT(filmy.id_filmu) desc;
+albo
+SELECT filmy.tytul,round(MIN(wypozyczenia.data_zwrotu-wypozyczenia.data_wypozyczenia),1), 
+round( MAX(wypozyczenia.data_zwrotu-wypozyczenia.data_wypozyczenia),1), 
+round( AVG(wypozyczenia.data_zwrotu-wypozyczenia.data_wypozyczenia),1) as sre, 
+COUNT(filmy.id_filmu) as razy FROM wypozyczenia 
+natural JOIN kopie natural JOIN filmy 
+GROUP BY filmy.id_filmu ORDER BY COUNT(filmy.id_filmu) desc;
