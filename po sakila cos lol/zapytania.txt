@@ -18,3 +18,6 @@ zad7
 SELECT klienci.imie,klienci.nazwisko,COUNT(wypozyczenia.id_kopii) from klienci 
 JOIN wypozyczenia on klienci.id_klienta=wypozyczenia.id_klienta 
 GROUP BY wypozyczenia.id_klienta order by wypozyczenia.id_kopii;
+albo
+SELECT klienci.imie,klienci.nazwisko,COUNT(wypozyczenia.id_kopii) from klienci 
+natural join wypozyczenia GROUP BY wypozyczenia.id_klienta order by wypozyczenia.id_kopii;
