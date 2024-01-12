@@ -30,3 +30,6 @@ albo
 SELECT aktorzy.nazwisko, COUNT(obsada.id_filmu) as filmy from aktorzy 
 natural JOIN obsada GROUP BY aktorzy.id_aktora HAVING COUNT(obsada.id_filmu)>1;
 zad9
+SELECT klienci.nazwisko,sum(filmy.cena) FROM `klienci` 
+JOIN wypozyczenia ON wypozyczenia.id_klienta=klienci.id_klienta join kopie on kopie.id_kopii=wypozyczenia.id_kopii
+JOIN filmy on filmy.id_filmu=kopie.id_filmu GROUP by  klienci.id_klienta;
