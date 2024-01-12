@@ -21,3 +21,12 @@ GROUP BY wypozyczenia.id_klienta order by wypozyczenia.id_kopii;
 albo
 SELECT klienci.imie,klienci.nazwisko,COUNT(wypozyczenia.id_kopii) from klienci 
 natural join wypozyczenia GROUP BY wypozyczenia.id_klienta order by wypozyczenia.id_kopii;
+zad8
+SELECT aktorzy.nazwisko, COUNT(obsada.id_filmu) as filmy from aktorzy 
+join obsada on aktorzy.id_aktora = obsada.id_aktora 
+GROUP BY aktorzy.id_aktora 
+HAVING COUNT(obsada.id_filmu)>1;
+albo
+SELECT aktorzy.nazwisko, COUNT(obsada.id_filmu) as filmy from aktorzy 
+natural JOIN obsada GROUP BY aktorzy.id_aktora HAVING COUNT(obsada.id_filmu)>1;
+zad9
