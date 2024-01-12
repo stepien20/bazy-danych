@@ -47,6 +47,8 @@ albo
 SELECT COUNT(*) FROM filmy where rok_produkcji=1984;
 
 zad4
+
+zad5
 SELECT round(avg(DATEDIFF(data_zwrotu,data_wypozyczenia)),1) from wypozyczenia JOIN kopie on kopie.id_kopii=wypozyczenia.id_kopii where id_filmu=7;
 albo
 SELECT round(avg(data_zwrotu-data_wypozyczenia),1) from wypozyczenia JOIN kopie on kopie.id_kopii=wypozyczenia.id_kopii where id_filmu=7;
