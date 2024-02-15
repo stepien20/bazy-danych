@@ -1,0 +1,45 @@
+create DATABASE kursantki;
+create table `kursantki`(
+    `kursantki_id` int AUTO_INCREMENT PRIMARY KEY,
+    `imie` varchar(15) not null,
+    `nazwisko` varchar(120) not null DEFAULT 'uczen'
+) engine=INNODB AUTO_INCREMENT=7 DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+INSERT into kursantki(kursantki_id, imie) values(1,'Ola'); 
+INSERT into kursantki(kursantki_id, imie) values(2,'Iza');
+INSERT into kursantki(kursantki_id, imie) values(3,'Kasia');
+INSERT into kursantki(kursantki_id, imie) values(4,'Ania');
+INSERT into kursantki(kursantki_id, imie) values(5,'Monika'); 
+INSERT into kursantki(kursantki_id, imie) values(6,'Basia'); 
+
+CREATE table `kurs`(
+    `kurs_id` int AUTO_INCREMENT PRIMARY key,
+    `nazwa` varchar(15) not null)
+    engine=INNODB AUTO_INCREMENT=7 DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+
+insert into kurs (nazwa) values('PHP');
+insert into kurs (nazwa) values('Java');
+insert into kurs (nazwa) values('C++');
+insert into kurs (nazwa) values('C');
+insert into kurs (nazwa) values('C#');
+insert into kurs (nazwa) values('Python');
+insert into kurs (nazwa) values('Go');
+insert into kurs (nazwa) values('Rust');
+insert into kurs (nazwa) values('Kotlin');
+insert into kurs (nazwa) values('Javascript');
+
+create table `nauka`(
+`nauka_id` int AUTO_INCREMENT primary key,
+`kursantki_id` int,
+`kurs_id` int,
+FOREIGN key(kursantki_id) REFERENCES kursantki(kursantki_id),
+    FOREIGN key(kurs_id) REFERENCES kurs(kurs_id)
+    )engine=INNODB AUTO_INCREMENT=7 default charset=utf8 COLLATE=utf8_polish_ci;
+
+insert into nauka(kursantki_id, kurs_id) values(1,7);
+insert into nauka(kursantki_id, kurs_id) values(1,8);
+insert into nauka(kursantki_id, kurs_id) values(2,10);
+insert into nauka(kursantki_id, kurs_id) values(3,9);
+insert into nauka(kursantki_id, kurs_id) values(4,9);
+insert into nauka(kursantki_id, kurs_id) values(5,7);
+insert into nauka(kursantki_id, kurs_id) values(6,9);
+insert into nauka(kursantki_id, kurs_id) values(6,8);
