@@ -1,0 +1,15 @@
+zad6
+SELECT filmy.tytul,round(MIN(wypozyczenia.data_zwrotu-wypozyczenia.data_wypozyczenia),1), round( MAX(wypozyczenia.data_zwrotu-wypozyczenia.data_wypozyczenia),1), round( AVG(wypozyczenia.data_zwrotu-wypozyczenia.data_wypozyczenia),1) as sre, COUNT(filmy.id_filmu) as razy FROM wypozyczenia natural JOIN kopie natural JOIN filmy 
+GROUP BY filmy.id_filmu order by razy desc;
+zad7
+SELECT klienci.imie,klienci.nazwisko,COUNT(wypozyczenia.id_kopii) from klienci 
+natural join wypozyczenia GROUP BY wypozyczenia.id_klienta order by wypozyczenia.id_kopii;
+zad8
+SELECT aktorzy.nazwisko, COUNT(obsada.id_filmu) as filmy from aktorzy 
+join obsada on aktorzy.id_aktora = obsada.id_aktora 
+GROUP BY aktorzy.id_aktora 
+HAVING COUNT(obsada.id_filmu)>1;
+zad9
+SELECT klienci.nazwisko,sum(filmy.cena) FROM `klienci` 
+JOIN wypozyczenia ON wypozyczenia.id_klienta=klienci.id_klienta join kopie on kopie.id_kopii=wypozyczenia.id_kopii
+JOIN filmy on filmy.id_filmu=kopie.id_filmu GROUP by  klienci.id_klienta;

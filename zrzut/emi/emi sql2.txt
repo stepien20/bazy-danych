@@ -1,0 +1,50 @@
+
+create table `placowki`(
+    `osrodek_id` int AUTO_INCREMENT PRIMARY KEY,
+    `miasto` varchar(120) not null,
+    `wojewodztwo` varchar(120) not null
+)engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+alter TABLE nauka add COLUMN `osrodek_id` int , add CONSTRAINT `nazwa_jakas` FOREIGN KEY(osrodek_id) REFERENCES placowki(osrodek_id);
+
+INSERT INTO placowki(miasto,wojewodztwo) VALUES("Gliwice","Slaskie");
+INSERT INTO placowki(miasto,wojewodztwo) VALUES("Krakow","Malopolskie");
+INSERT INTO placowki(miasto,wojewodztwo) VALUES("Warszawa","Mazowieckie");
+
+
+
+UPDATE nauka set osrodek_id=1 where nauka_id=7;
+UPDATE nauka set osrodek_id=2 where nauka_id=8;
+UPDATE nauka set osrodek_id=2 where nauka_id=9;
+UPDATE nauka set osrodek_id=1 where nauka_id=10;
+UPDATE nauka set osrodek_id=3 where nauka_id=11;
+UPDATE nauka set osrodek_id=3 where nauka_id=12;
+UPDATE nauka set osrodek_id=1 where nauka_id=13;
+UPDATE nauka set osrodek_id=3 where nauka_id=14;
+
+
+
+zad25
+
+1.SELECT sum(kurs.cena),avg(kurs.cena),MIN(cena),MAX(cena),kursantki.imie,kursantki.nazwisko from `nauka`
+JOIN kurs ON kurs.kurs_id=nauka.kurs_id
+JOIN kursantki ON kursantki.kursantki_id=nauka.kursantki_id GROUP BY kursantki.kursantki_id;
+
+
+2.SELECT kursantki.imie,kurs.nazwa FROM kursantki 
+JOIN nauka ON kursantki.kursantki_id=nauka.kursantki_id
+JOIN kurs ON kurs.kurs_id=nauka.kurs_id
+WHERE kursantki.imie="Kasia";
+
+3.SELECT kursantki.imie,kursantki.nazwisko,SUM(kurs.cena) as `do_zaplaty`,COUNT(cena) as `ilosc_kursow` FROM kursantki JOIN nauka ON kursantki.kursantki_id=nauka.kursantki_id JOIN kurs ON kurs.kurs_id=nauka.kurs_id GROUP BY kursantki.kursantki_id;
+
+4.SELECT kurs.nazwa,kurs.cena,placowki.miasto FROM `kurs`
+JOIN nauka ON kurs.kurs_id=nauka.kurs_id
+JOIN placowki ON placowki.osrodek_id=nauka.osrodek_id 
+where placowki.miasto="Gliwice"
+
+5.SELECT kursantki.imie,kursantki.nazwisko,COUNT(nauka.osrodek_id) as ile_osrodkow_szkoleniowych,sum(kurs.cena) as do_zaplaty FROM `kurs`
+JOIN nauka ON kurs.kurs_id=nauka.kurs_id
+JOIN placowki ON placowki.osrodek_id=nauka.osrodek_id 
+JOIN kursantki ON kursantki.kursantki_id=nauka.kursantki_id
+where kursantki.imie="Ola";
+
