@@ -34,7 +34,7 @@ create table `nauka`(
 FOREIGN key(kursantki_id) REFERENCES kursantki(kursantki_id),
     FOREIGN key(kurs_id) REFERENCES kurs(kurs_id)
     )engine=INNODB AUTO_INCREMENT=7 default charset=utf8 COLLATE=utf8_polish_ci;
-
+// foreign key (kursantki_id)[to tutaj to jest w tej tabeli nauka nazwa kolumny ktora bedzie powiazana z inna kolumna w innej tabeli] references kursantki(kursantki_id) [tutaj wskazujemy z jaka tabela i kolumna ma byc powiazana, wiec w tym przpadku to jest z tabeli `kursantki`]
 insert into nauka(kursantki_id, kurs_id) values(1,7);
 insert into nauka(kursantki_id, kurs_id) values(1,8);
 insert into nauka(kursantki_id, kurs_id) values(2,10);
@@ -43,3 +43,59 @@ insert into nauka(kursantki_id, kurs_id) values(4,9);
 insert into nauka(kursantki_id, kurs_id) values(5,7);
 insert into nauka(kursantki_id, kurs_id) values(6,9);
 insert into nauka(kursantki_id, kurs_id) values(6,8);
+
+
+alter table `kurs` add column `cena` int;
+update `kurs` set cena=300 where kurs_id;//parzyste id ma taka cene
+update `kurs` set cena=250 where kurs_id%2;//nieparzyste taka cene
+
+//dodajemy do tabeli nauka kolumne data i dodajemy daty do kursow
+alter table nauka add `data_rozpoczecia_kursu` date;
+update nauka set data_rozpoczecia_kursu='2023-01-11' where kurs_id=7;
+update nauka set data_rozpoczecia_kursu='2023-02-20' where kurs_id=8;
+update nauka set data_rozpoczecia_kursu='2023-03-04' where kurs_id=9;
+update nauka set data_rozpoczecia_kursu='2023-04-22' where kurs_id=10;
+update nauka set data_rozpoczecia_kursu='2023-05-10' where kurs_id=11;
+update nauka set data_rozpoczecia_kursu='2023-06-14' where kurs_id=12;
+update nauka set data_rozpoczecia_kursu='2023-07-15' where kurs_id=13;
+update nauka set data_rozpoczecia_kursu='2023-08-02' where kurs_id=14;
+update nauka set data_rozpoczecia_kursu='2001-09-11' where kurs_id=15;
+update nauka set data_rozpoczecia_kursu='2022-12-12' where kurs_id=16;
+
+// nowa tabela i powiazujemy ja z kursami
+create table `instruktorzy`(
+    `instruktor_id` int AUTO_INCREMENT PRIMARY KEY,
+    `kurs_id` int,
+    `imie` varchar(120) not null,
+    `nazisko` varchar(120) not null,
+    FOREIGN key(kurs_id) REFERENCES kurs(kurs_id)
+    )engine=INNODB default charset=utf8 COLLATE=utf8_polish_ci;
+//dodajemy instruktorow 
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(7,"Pawel","Nierodka");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(8,"Darek","Bodzioch");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(9,"Michal","Capinski");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(10,"Michal","Capinski");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(11,"Michal","Capinski");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(12,"Michal","Capinski");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(13,"Zbigniew","Karenin");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(14,"Bogdan","Ackerman");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(16,"Darek","Bodzioch");
+INSERT INTO `instruktorzy`(kurs_id,imie,nazwisko) VALUES(15,"Kordian","Anielewicz");
+
+//zadanie25--------------------------------------------------------------------
+1.SELECT sum(kurs.cena),avg(kurs.cena),MIN(cena),MAX(cena),kursantki.imie,kursantki.nazwisko from `nauka`
+JOIN kurs ON kurs.kurs_id=nauka.kurs_id
+JOIN kursantki ON kursantki.kursantki_id=nauka.kursantki_id GROUP BY kursantki.kursantki_id;
+
+2.SELECT kurs.nazwa,kurs.cena,instruktorzy.imie,instruktorzy.nazwisko FROM `kurs` 
+JOIN instruktorzy ON kurs.kurs_id=instruktorzy.kurs_id;
+
+3.SELECT kurs.nazwa,kursantki.imie FROM kurs 
+JOIN nauka ON kurs.kurs_id=nauka.kurs_id
+JOIN kursantki ON kursantki.kursantki_id=nauka.kursantki_id
+WHERE kursantki.imie="Ola"
+
+4.SELECT kursantki.imie,kursantki.nazwisko,SUM(kurs.cena) FROM kursantki JOIN nauka ON kursantki.kursantki_id=nauka.kursantki_id JOIN kurs ON kurs.kurs_id=nauka.kurs_id GROUP BY kursantki.kursantki_id;
+
+
+5.SELECT kursantki.imie,kursantki.nazwisko,kurs.nazwa,instruktorzy.nazwisko FROM kursantki JOIN nauka ON kursantki.kursantki_id=nauka.kursantki_id JOIN kurs ON kurs.kurs_id=nauka.kurs_id JOIN instruktorzy ON instruktorzy.kurs_id=nauka.kurs_id where instruktorzy.nazwisko="Capinski";
