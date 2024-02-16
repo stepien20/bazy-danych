@@ -1,0 +1,31 @@
+SELECT * from kursantki;
+
+
+SELECT imie,
+case imie WHEN 'Ola' THEN 'to jest Ola' end,
+case imie WHEN 'Iza' THEN 'to jest Iza' end
+from kursantki;
+
+
+SELECT imie,
+case imie WHEN 'Ola' THEN 'to jest Ola' end as Ola,
+case imie WHEN 'Iza' THEN 'to jest Iza' end as Iza
+from kursantki;
+
+
+SELECT imie,
+case imie WHEN 'Ola' THEN 'to jest Ola' else 'to nie jest Ola'end as Ola,
+case imie WHEN 'Iza' THEN 'to jest Iza' else 'to nie jest Iza'end as Iza
+from kursantki;
+
+
+
+ SELECT imie,
+case imie WHEN 'Ola' THEN 'to jest Ola' else 'to nie jest Ola'end as Ola,
+case imie WHEN 'Iza' THEN 'to jest Iza' else 'to nie jest Iza'end as Iza,
+case imie WHEN 'Kasia' THEN 'to jest Kasia' else 'to nie jest Kasia'end as Kasia,
+case imie WHEN 'Ania' THEN 'to jest Ania' else 'to nie jest Ania'end as Ania,
+case imie WHEN 'Monika' THEN 'to jest Monika' else 'to nie jest Monika'end as Monika,
+case imie WHEN 'Basia' THEN 'to jest Basia' else 'to nie jest Basia'end as Basia
+from kursantki;
+
