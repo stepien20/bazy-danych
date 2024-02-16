@@ -1,0 +1,4 @@
+zad27.1 
+SELECT case release_year when 2006 then release_year END, title from `film`
+
+zad27.2
