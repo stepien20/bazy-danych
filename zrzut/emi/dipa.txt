@@ -1,0 +1,47 @@
+-- Inserts for table 'ubrania'
+INSERT INTO ubrania (`typ ubrania`, `nazwa`, `płeć`) VALUES 
+('Koszula', 'Koszula męska biała', 'mezczyzna'),
+('Koszula', 'Koszula damska różowa', 'kobieta'),
+('Spodnie', 'Jeansy męskie niebieskie', 'mezczyzna'),
+('Spodnie', 'Spódnica damska czarna', 'kobieta'),
+('Kurtka', 'Kurtka przeciwdeszczowa unisex czarna', NULL);
+
+-- Inserts for table 'klienci'
+INSERT INTO klienci (`imie`, `nazwisko`, `miasto`) VALUES 
+('Anna', 'Kowalska', 'Warszawa'),
+('Jan', 'Nowak', 'Kraków'),
+('Magdalena', 'Wiśniewska', 'Gdańsk'),
+('Piotr', 'Jankowski', 'Wrocław'),
+('Karolina', 'Kaczmarek', 'Poznań');
+
+-- Inserts for table 'placówki'
+INSERT INTO placówki (`miasto`, `wojewodztwo`) VALUES 
+('Warszawa', 'Mazowieckie'),
+('Kraków', 'Małopolskie'),
+('Gdańsk', 'Pomorskie'),
+('Wrocław', 'Dolnośląskie'),
+('Poznań', 'Wielkopolskie');
+
+-- Inserts for table 'personel'
+INSERT INTO personel (`imie`, `nazwisko`, `pozycja`) VALUES 
+('Adam', 'Nowak', 'menadzer'),
+('Ewa', 'Kowalska', 'sprzedawca'),
+('Michał', 'Wiśniewski', 'kasjer'),
+('Karolina', 'Jankowska', 'magazynier'),
+('Paweł', 'Kaczmarek', 'sprzedawca');
+
+-- Inserts for table 'kurierzy'
+INSERT INTO kurierzy (`firma_kurierska`, `data`, `klienci_id`) VALUES 
+('DHL', '2024-02-10', 1),
+('INPOST', '2024-02-11', 2),
+('ORLEN', '2024-02-12', 3),
+('DHL', '2024-02-13', 4),
+('INPOST', '2024-02-14', 5);
+
+-- Inserts for table 'zamowienia'
+INSERT INTO zamowienia (`data`, `klienci_id`, `kurier_id`) VALUES 
+('2024-02-10', 1, 1),
+('2024-02-11', 2, 2),
+('2024-02-12', 3, 3),
+('2024-02-13', 4, 4),
+('2024-02-14', 5, 5);
