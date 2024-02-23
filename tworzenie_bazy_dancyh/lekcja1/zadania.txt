@@ -2,3 +2,32 @@ zad27.1
 SELECT case release_year when 2006 then release_year END, title from `film`
 
 zad27.2
+    SELECT first_name, last_name, 
+CASE first_name WHEN 'ED' THEN "To ed" ELSE 'to nie ed' END,
+CASE  last_name WHEN 'GUINESS' THEN "to gines" ELSE 'to nie gines' END,
+CASE first_name WHEN 'PENELOPE' THEN "to penelopa" ELSE 'to nie penelopa' END,
+CASE first_name WHEN 'JOHNNY' THEN "to johnny" ELSE 'to nie johnny' END FROM `actor`;
+zad.27.3
+SELECT customer_id,sum(amount) as `suma`,CASE WHEN sum(amount)>100.00 THEN "Duze zamowienie" ELSE "Male zamowienie" END as wielkosc_zamowienia  from `payment` GROUP BY customer_id;
+
+zad 27.4
+
+SELECT if(amount>2, 
+          if(amount>4,
+             "Bardzo duze zamowienie",
+             "Srednie zamowienie"),
+          if(amount>1,
+             "Srednie male zamowienie",
+             "Male zamowienie")) as `rozmiar_zamowienia`,
+        amount FROM `payment`;
+
+zad27.5
+SELECT if(amount>2, 
+          if(amount>4,
+             "Bardzo duze zamowienie",
+             "Srednie zamowienie"),
+          if(amount>1,
+             "Srednie male zamowienie",
+             "Male zamowienie")) as `rozmiar_zamowienia`,
+        amount FROM `payment`;
+
