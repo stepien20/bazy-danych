@@ -1,4 +1,4 @@
-create database magazyn;
+////create database magazyn;///// tego nie bo to jest do kursantek
 
 create table towary(
     id SERIAL,
@@ -44,10 +44,21 @@ INSERT INTO payment (customer_id, staff_id, rental_id, amount, payment_date)
 VALUES (klient_id, pracownik_id, rental_id, kwota, NOW());
 
 COMMIT;
-jeszcze 2 do zrobienia kurwaaa 
+jeszcze 2 do zrobienia  
 //////////////////////
+start TRANSACTION;
+INSERT INTO country(country) VALUES ('Poland');
+insert INTO city(city,country_id) VALUES('Cracow',601);
+commit;
 
+/////////////////////////////
 
+start TRANSACTION;
+insert INTO language(name) VALUES("Russian");
+INSERT INTO film(title,description,release_year,language_id,rental_duration,rental_rate,length,replacement_cost,rating,special_features) VALUES ('FAST AND FURIOUS','car vroom vroom',2019,7,4,3.99,120,12.00,'G','Trailers,Deleted Scenes');
+commit;
+
+//////////////////////////
 alter TABLE kursantki add ostatni_zakup_id int;
 
 wyeksportuj tabele z magazynu do kursantek
