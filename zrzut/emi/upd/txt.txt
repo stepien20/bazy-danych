@@ -1,0 +1,9 @@
+start TRANSACTION;
+INSERT INTO country(country) VALUES ('Ukraine');
+insert INTO city(city,country_id) VALUES('Kiev',601);
+commit;
+
+start TRANSACTION;
+insert INTO language(name) VALUES("Ukrainian");
+INSERT INTO film(title,description,release_year,language_id,rental_duration,rental_rate,length,replacement_cost,rating,special_features) VALUES ('INDEPENDANCE DAY','aliens vs Ukraine',2009,7,2,5.93,165,4.00,'GL','Trailers,Deleted Scenes');
+commit;
