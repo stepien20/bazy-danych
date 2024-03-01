@@ -1,1 +1,8 @@
+delimiter  to separator na poczatku i koncu nie ma tu srednia ale $$ (lub //)
+dziek itemu wszystko robi sie jak calosc na koncy
+musi byc delimiter ; na koncu!!!!
+ten trigger ma sie zrobic przed modyfikacja bo BEFORE 
+sql state to porpostu robi obsluga bledu 
+
+
 
