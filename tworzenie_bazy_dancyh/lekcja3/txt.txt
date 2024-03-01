@@ -44,7 +44,9 @@ insert into memo(tytul,termin) VALUES('Urodziny psa','2024-03-05');
 
 update memo SET zrobione=1 WHERE memo_id=2;
 update memo SET zrobione=1 WHERE memo_id=1;
-D 
-E
 
-zad30
+
+
+widokiiiii
+/////////////
+widoki df to zapytania do bazy danych zapisywane pod jakas nazwa w postaci widoku
