@@ -36,6 +36,8 @@ end IF;
     end $$
 DELIMITER ;
 
+nie musimy robic czas bo timestamp sam to nam tworzy
+
 insert into memo(tytul,termin) VALUES('Urodziny babci','2024-01-21');
 insert into memo(tytul,termin) VALUES('Spotkanie z prezesme','2024-03-04');
 insert into memo(tytul,termin) VALUES('Urodziny psa','2024-03-05');
