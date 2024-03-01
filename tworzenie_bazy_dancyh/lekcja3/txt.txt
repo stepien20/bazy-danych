@@ -6,3 +6,43 @@ sql state to porpostu robi obsluga bledu
 
 
 
+zad29
+A 
+create TABLE memo(
+memo_id serial,
+tytul varchar (255),
+termin date,
+dodanie timestamp
+);
+SELECT * from zadanie.memo
+B 
+alter table memo add zrobione int DEFAULT 0;
+C 
+create table sukcesy(
+sukcesy_id serial,
+wydarzenie varchar(255),
+czas timestamp
+);
+
+
+DELIMITER $$
+    create trigger aktualizacjaWydarzenia after update on memo
+    for each row 
+    begin
+        if new.zrobione>0 THEN
+        INSERT INTO sukcesy (wydarzenie, czas)
+        VALUES (NEW.tytul, NOW());
+end IF;
+    end $$
+DELIMITER ;
+
+insert into memo(tytul,termin) VALUES('Urodziny babci','2024-01-21');
+insert into memo(tytul,termin) VALUES('Spotkanie z prezesme','2024-03-04');
+insert into memo(tytul,termin) VALUES('Urodziny psa','2024-03-05');
+
+update memo SET zrobione=1 WHERE memo_id=2;
+update memo SET zrobione=1 WHERE memo_id=1;
+D 
+E
+
+zad30
