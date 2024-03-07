@@ -1,0 +1,29 @@
+zad29
+--A 
+create TABLE memo(
+memo_id serial,
+tytul varchar (255),
+termin date,
+dodanie timestamp
+);
+SELECT * from zadanie.memo
+--B 
+alter table memo add zrobione int DEFAULT 0;
+--C 
+create table sukcesy(
+sukcesy_id serial,
+wydarzenie varchar(255),
+czas timestamp
+);
+
+
+DELIMITER $$
+    create trigger aktualizacjaWydarzenia after update on memo
+    for each row 
+    begin
+        if new.zrobione>0 THEN
+        INSERT INTO sukcesy (wydarzenie, czas)
+        VALUES (NEW.tytul, NOW());
+end IF;
+    end $$
+DELIMITER ;
