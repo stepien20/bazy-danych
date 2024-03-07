@@ -2,7 +2,7 @@ zad29
 --A 
 create TABLE memo(
 memo_id serial,
-tytul varchar (255),
+tytul varchar (120),
 termin date,
 dodanie timestamp
 );
@@ -12,7 +12,7 @@ alter table memo add zrobione int DEFAULT 0;
 --C 
 create table sukcesy(
 sukcesy_id serial,
-wydarzenie varchar(255),
+wydarzenie varchar(120),
 czas timestamp
 );
 
