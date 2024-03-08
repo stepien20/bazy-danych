@@ -1,1 +1,157 @@
+widoki df- to zapytania do bazy danych, zapisywane pod jakas nazwa w postaci WIDOKU 
 
+
+SELECT 
+GNP as PKB,
+Name as Kraj,
+Continent as Kontynent,
+Population as Populacja,
+SurfaceArea as Powierzchnia,
+LifeExpectancy as Dlugosczycia
+from `country`;
+
+
+SELECT 
+GNP as PKB,
+Name as Kraj,
+Continent as Kontynent,
+Population as Populacja,
+SurfaceArea as Powierzchnia,
+LifeExpectancy as Dlugosczycia
+from `country` ORDER BY PKB DESC;
+
+
+//////////////////////////////////takie gowno
+CREATE VIEW PozycjaPKB AS
+SELECT 
+GNP as PKB,
+Name as Kraj,
+Continent as Kontynent,
+Population as Populacja,
+SurfaceArea as Powierzchnia,
+LifeExpectancy as Dlugosczycia
+from `country` ORDER BY PKB DESC;
+
+
+SELECT * from world.PozycjaPKB
+
+SELECT PKB,Kraj from world.PozycjaPKB
+
+
+
+
+
+create view jezykikrajowe as 
+SELECT 
+CountryCode as KodKraju,
+Language as Jezyk,
+IsOfficial as CzyUrzedowy,
+Percentage as Procent
+FROM `countrylanguage` WHERE 1;
+
+
+create view populacjaMiast as
+SELECT 
+ID as Identyfikator,
+Name as Miasto,
+CountryCode as KodKraju, 
+District as Dystykt,
+Population as Populacja
+FROM `city` order by Populacja desc;
+
+
+
+zmienna poprzedzona jest @
+':=' to przypisanie wartosci
+
+set @nr := 0;
+SELECT @nr := @nr +1, pkb, kraj, dlugosczycia FROM world.pozycjapkb;
+
+
+SET @nr :=0;
+SELECT @nr := @nr +1 as pozycja , pkb, kraj, dlugosczycia FROM world.pozycjapkb;
+
+
+
+SELECT * FROM `jezykikrajowe` where CzyUrzedowy='T' and Procent<33.3;
+
+
+
+
+teraz sakila
+
+
+
+
+create view Platnosci as
+SELECT 
+concat(C.first_name,' ', C.last_name) as Klient,
+SUM(p.amount) as Zaplacil,
+AVG(p.amount) as Srednia
+FROM payment as P, customer as C
+where c.customer_id=p.customer_id
+group by c.customer_id 
+order by Zaplacil desc;
+
+
+zad30;
+A
+stworz widok powstaly na podstawie 2 tabel z bay dancyh world
+
+create view kraje_jezyk_urzedowy as 
+SELECT  country.Name as Nazwa,countrylanguage.language as Jezyk_urzedowy,countrylanguage.Percentage as procent from `countrylanguage` JOIN country on  countrylanguage.CountryCode=country.Code WHERE countrylanguage.IsOfficial='T' and countrylanguage.Percentage>0 order by nazwa asc;
+B
+
+C
+
+koncyzmy to za tydzien
+
+
+//notatka do zrobienia z:
+czym sie rozni funckaj od procedur:
+Funkcje mogą mieć jedynie parametry wejściowe, IN. Procedury mogą mieć parametry wejściowe, wyjściowe i dwukierunkowe (odpowiednio IN, OUT i INOUT).
+
+Funkcje zwracają wartość; aby otrzymać wartość z procedury, trzeba użyć parametru wyjściowego lub dwukierunkowego.
+
+Funkcje można wywoływać w zapytaniach tak, jak zwykłe funkcje MySQL i funkcje użytkownika. Procedury wywołuje się poleceniem CALL.
+
+Polecenie CREATE PROCEDURE lub CREATE FUNCTION tworzy odpowiednio składowaną .
+
+procedura cos robi, zmienia dodaje usuwa
+
+funkcja zawsze zwraca cos, oblicza
+mozna w SELECT
+nie moze miec wartosci wyjsciowych
+
+
+
+
+DELIMITER $$
+CREATE PROCEDURE Panstwa()
+BEGIN
+SELECT * FROM world.country;
+END
+$$
+DELIMITER ;
+
+
+DELIMITER $$
+create PROCEDURE Kraj(IN kod varchar(3))
+BEGIN
+SELECT concat(name,continent,region) FROM country where code=kod;
+END
+$$
+DELIMITER ;
+
+
+
+
+
+DROP PROCEDURE if EXISTS Kraj;
+DELIMITER $$
+create PROCEDURE Kraj(IN kod varchar(3),OUT wyjscie TEXT)
+BEGIN
+SELECT concat(name,continent,region) FROM country where code=kod;
+END
+$$
+DELIMITER ;
