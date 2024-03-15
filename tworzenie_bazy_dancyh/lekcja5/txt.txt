@@ -5,3 +5,38 @@ BEGIN
 	SELECT concat(Name,' ',Continent,' ',Region) FROM country WHERE Code=kod;
 END $$
 DELIMITER ;
+
+
+set @wyjscie ='0';
+CALL kraj('POL',@wyjscie);
+SELECT @wyjscie;
+
+
+DELIMITER $$
+CREATE FUNCTION witaj()
+returns text
+DETERMINISTIC
+BEGIN 
+	RETURN 'Witaj na zajęciach P.Nierdoki SQL';
+END
+$$
+DELIMITER ;
+
+SELECT witaj();
+
+SELECT witaj() AS Powitanie;
+
+
+
+DELIMITER $$
+CREATE FUNCTION witajUczniu(imie VARCHAR(20))
+RETURNS text
+DETERMINISTIC
+BEGIN
+RETURN concat('Witaj ',imie,' na zajęciach P.Nierodki SQL');
+END
+$$
+DELIMITER ;
+
+
+SELECT world.witajUczniu('Iza')
