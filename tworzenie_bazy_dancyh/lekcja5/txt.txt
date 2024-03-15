@@ -1,0 +1,7 @@
+drop PROCEDURE if EXISTS Kraj;
+DELIMITER $$
+CREATE PROCEDURE KRAJ(IN kod VARCHAR(3), OUT wyjscie TEXT)
+BEGIN
+	SELECT concat(Name,' ',Continent,' ',Region) FROM country WHERE Code=kod;
+END $$
+DELIMITER ;
